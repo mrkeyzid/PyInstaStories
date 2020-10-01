@@ -110,16 +110,16 @@ def login(username="", password=""):
 		sys.exit(9)
 	except Exception as e:
 		if str(e).startswith("unsupported pickle protocol"):
-			print("[W] This cookie file is not compatible with Python {}.".format(sys.version.split(' ')[0][0]))
+			print("[W] This your cookie file is not compatible with Python {}.".format(sys.version.split(' ')[0][0]))
 			print("[W] Please delete your cookie file 'credentials.json' and try again.")
 		else:
 			print('[E] Unexpected Exception: {0!s}'.format(e))
 		print('-' * 70)
 		sys.exit(99)
 
-	print('[I] Login to "' + api.authenticated_user_name + '" OK!')
+	print('[I] Login in to "' + api.authenticated_user_name + '" OK!')
 	cookie_expiry = api.cookie_jar.auth_expires
-	print('[I] Login cookie expiry date: {0!s}'.format(
+	print('[I] Your login cookie expiry date: {0!s}'.format(
 		datetime.datetime.fromtimestamp(cookie_expiry).strftime('%Y-%m-%d at %I:%M:%S %p')))
 
 	return api
@@ -139,10 +139,10 @@ def check_directories(user_to_check):
 
 def get_media_story(user_to_check, user_id, ig_client, taken_at=False, no_video_thumbs=False, hq_videos=False):
 	if hq_videos and command_exists("ffmpeg"):
-		print("[I] Downloading high quality videos enabled. Ffmpeg will be used.")
+		print("[I] Are Downloading high quality videos enabled. Ffmpeg will be used.")
 		print('-' * 70)
 	elif hq_videos and not command_exists("ffmpeg"):
-		print("[W] Downloading high quality videos enabled but Ffmpeg could not be found. Falling back to default.")
+		print("[W] Are Downloading high quality videos enabled but Ffmpeg could not be found. Falling back to default.")
 		hq_videos = False
 		print('-' * 70)
 	try:
